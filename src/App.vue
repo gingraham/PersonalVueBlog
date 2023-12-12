@@ -71,5 +71,60 @@ export default {
       fill: #ffffff;
     }
   }
+// Button styling
+button,
+.router-button{
+  transition: 500ms ease all;
+  cursor: pointer;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: #303030;
+  color: #fff;
+  border-radius: 20px;
+  border:none;
+  text-transform: uppercase;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    background-color:rgba(48,48,48,0.7)
+  }
+}
 
+.button-light{
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+
+}
+.button-inactive{
+  pointer-events: none !important;
+  cursor: none !important;
+  background-color: rgba(128,128,128,0.5);
+}
+
+
+  // post cards styling added to app for global use since it also renders on the "Blogs" page.
+.blog-card-wrap{
+  position: relative;
+  padding: 80px 16px;
+  background-color: #f1f1f1;
+  @media(min-width: 500px){
+    padding: 100px 16px
+  }
+  .blog-cards{
+    display:grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr)
+    }
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr)
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr)
+    }
+  }
+}
 </style>
