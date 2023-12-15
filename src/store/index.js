@@ -27,8 +27,13 @@ export default new Vuex.Store({
         blogDate: "May 1, 2021",
       }, 
     ],
+    editPost: null,
   },
   mutations: {
+    toggleEditPost(state,payload){
+      state.editPost = payload;
+      console.log(state.editPost)
+    }
   },
   actions: {
   },

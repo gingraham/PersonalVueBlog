@@ -20,14 +20,19 @@
     components: {
       BlogCard
     },
-    data() {
-      return {
-        editPost: false // Initialize the editPost data property
-      }
-    },
+    
     computed: {
       sampleBlogCards() {
         return this.$store.state.sampleBlogCards
+      },
+      editPost:{
+        get(){
+            return this.$store.state.editPost
+        },
+        // "commit" plugins in to mutate data in the store
+        set(payload){
+            this.$store.commit("toggleEditPost", payload)
+        }
       }
     },
   }
@@ -76,7 +81,7 @@ input[type="checkbox"]:before{
     transition: 750ms ease all;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-input[type="checkbox"]:before{
+input:checked[type="checkbox"]:before{
     background: #fff;
     left: 52px;
 }
