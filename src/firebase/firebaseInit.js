@@ -6,9 +6,9 @@ const firebaseConfig = {
     apiKey: "AIzaSyCVMSCavkxQLJfluRHVELZtdak0wbuqebQ",
     authDomain: "vuefirebaseblog-cf9af.firebaseapp.com",
     projectId: "vuefirebaseblog-cf9af",
-    storageBucket: "vuefirebaseblog-cf9af.appspot.com",
     messagingSenderId: "362538943156",
-    appId: "1:362538943156:web:5d48d137f0f98b52f8cde1"
+    appId: "1:362538943156:web:5d48d137f0f98b52f8cde1",
+    storageBucket: 'gs://vuefirebaseblog-cf9af.appspot.com'
   };
 
   // Initialize Firebase

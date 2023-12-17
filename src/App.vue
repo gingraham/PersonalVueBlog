@@ -11,6 +11,8 @@
 <script>
 import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue'
+import firebase from 'firebase/app'
+import "firebase/auth"
 export default {
   name: "app",
   components: {
@@ -23,6 +25,15 @@ export default {
     };
   },
   created() {
+    firebase.auth().onAuthStateChanged(async (user)=>{
+      this.$store.commit("updateUser", user);
+      if(user){
+        const token = await user.getIdTokenResult()
+        console.log(token.claims)
+        this.$store.dispatch('getCurrentUser', user)
+        console.log(this.$store.state.profileEmail)
+      }
+    })
     this.checkRoute()
   },
   mounted() {},
@@ -120,7 +131,7 @@ button,
 .button-inactive{
   pointer-events: none !important;
   cursor: none !important;
-  background-color: rgba(128,128,128,0.5);
+  background-color: rgba(128,128,128,0.5) !important;
 }
 
 
@@ -146,5 +157,12 @@ button,
       grid-template-columns: repeat(4, 1fr)
     }
   }
+}
+
+// validation styling
+.error{
+  text-align: center;
+  font-size: 12px;
+  color: red;
 }
 </style>

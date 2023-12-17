@@ -3,7 +3,7 @@
         <div class="container">
             <div class="left">
                 <div class="col-1">
-                    <router-link class="header" :to="{ name: 'home' }">
+                    <router-link class="header" :to="{ name: 'Home' }">
                         MyBlog
                     </router-link>
                     <ul>
@@ -31,10 +31,10 @@
                 </div>
                 <div class="col-2">
                     <ul>
-                        <router-link class="link" :to="{ name: 'home' }">Home</router-link>
-                        <router-link class="link" :to="{ name: 'blogs' }">Blogs</router-link>
-                        <!-- <router-link v-if="user" class="link" :to="{ name: 'newpost' }">Create Post</router-link> -->
-                        <!-- <router-link v-if="!user" class="link" :to="{ name: 'login' }">Login In / Register</router-link> -->
+                        <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+                        <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
+                        <router-link v-if="admin"  class="link" :to="{ name: 'CreatePost' }">Create Post</router-link>
+                        <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login In / Register</router-link>
                     </ul>
                 </div>
             </div>
@@ -58,6 +58,14 @@ export default {
         twitter,
         instagram,
         linkedin
+    },
+    computed:{
+        user(){
+            return this.$store.state.user;
+        },
+        admin(){
+            return this.$store.state.profileAdmin
+        }
     }
 }
 </script>
