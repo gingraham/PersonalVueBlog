@@ -7,7 +7,7 @@
           <!-- Bind the checkbox to the 'editPost' data property using v-model -->
           <input type="checkbox" v-model="editPost">
         </div>
-        <BlogCard v-for="(post,index) in sampleBlogCards" :key="index" :post="post"/>
+        <BlogCard v-for="(post,index) in blogPosts" :key="index" :post="post"/>
       </div>
     </div>
   </template>
@@ -22,8 +22,8 @@
     },
     
     computed: {
-      sampleBlogCards() {
-        return this.$store.state.sampleBlogCards
+      blogPosts() {
+        return this.$store.state.blogPosts
       },
       editPost:{
         get(){
